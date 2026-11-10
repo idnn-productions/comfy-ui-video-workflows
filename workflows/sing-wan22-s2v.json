@@ -1,0 +1,1236 @@
+{
+ "id": "ea7ba43e-ab56-40d4-a298-423f5bfe4462",
+ "revision": 0,
+ "last_node_id": 9002,
+ "last_link_id": 502,
+ "nodes": [
+  {
+   "id": 147,
+   "type": "CLIPLoader",
+   "pos": [
+    -80,
+    1880
+   ],
+   "size": [
+    390,
+    106
+   ],
+   "flags": {},
+   "order": 10,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "CLIP",
+     "type": "CLIP",
+     "slot_index": 0,
+     "links": [
+      442,
+      461
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "CLIPLoader",
+    "models": [
+     {
+      "name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "directory": "text_encoders"
+     }
+    ]
+   },
+   "widgets_values": [
+    "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+    "wan",
+    "default"
+   ]
+  },
+  {
+   "id": 148,
+   "type": "VAEDecode",
+   "pos": [
+    2470,
+    1770
+   ],
+   "size": [
+    210,
+    46
+   ],
+   "flags": {},
+   "order": 55,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "samples",
+     "type": "LATENT",
+     "link": 499
+    },
+    {
+     "name": "vae",
+     "type": "VAE",
+     "link": 441
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      500
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "VAEDecode"
+   },
+   "widgets_values": []
+  },
+  {
+   "id": 149,
+   "type": "CLIPTextEncode",
+   "pos": [
+    370,
+    2020
+   ],
+   "size": [
+    425.27801513671875,
+    180.6060791015625
+   ],
+   "flags": {},
+   "order": 33,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "clip",
+     "type": "CLIP",
+     "link": 442
+    }
+   ],
+   "outputs": [
+    {
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "slot_index": 0,
+     "links": [
+      450
+     ]
+    }
+   ],
+   "title": "in_negative_prompt",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "CLIPTextEncode"
+   },
+   "widgets_values": [
+    "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走"
+   ],
+   "color": "#223",
+   "bgcolor": "#335"
+  },
+  {
+   "id": 150,
+   "type": "VAELoader",
+   "pos": [
+    -80,
+    2040
+   ],
+   "size": [
+    390,
+    60
+   ],
+   "flags": {},
+   "order": 11,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "VAE",
+     "type": "VAE",
+     "slot_index": 0,
+     "links": [
+      441,
+      451
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "VAELoader",
+    "models": [
+     {
+      "name": "wan_2.1_vae.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors",
+      "directory": "vae"
+     }
+    ]
+   },
+   "widgets_values": [
+    "wan_2.1_vae.safetensors"
+   ]
+  },
+  {
+   "id": 151,
+   "type": "AudioEncoderLoader",
+   "pos": [
+    -80,
+    2150
+   ],
+   "size": [
+    390,
+    70
+   ],
+   "flags": {},
+   "order": 12,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "AUDIO_ENCODER",
+     "type": "AUDIO_ENCODER",
+     "links": [
+      485
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "AudioEncoderLoader",
+    "models": [
+     {
+      "name": "wav2vec2_large_english_fp16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/audio_encoders/wav2vec2_large_english_fp16.safetensors",
+      "directory": "audio_encoders"
+     }
+    ]
+   },
+   "widgets_values": [
+    "wav2vec2_large_english_fp16.safetensors"
+   ]
+  },
+  {
+   "id": 152,
+   "type": "KSampler",
+   "pos": [
+    1160,
+    1750
+   ],
+   "size": [
+    280,
+    440
+   ],
+   "flags": {},
+   "order": 43,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "model",
+     "type": "MODEL",
+     "link": 443
+    },
+    {
+     "name": "positive",
+     "type": "CONDITIONING",
+     "link": 444
+    },
+    {
+     "name": "negative",
+     "type": "CONDITIONING",
+     "link": 445
+    },
+    {
+     "name": "latent_image",
+     "type": "LATENT",
+     "link": 446
+    },
+    {
+     "name": "steps",
+     "type": "INT",
+     "widget": {
+      "name": "steps"
+     },
+     "link": 447
+    },
+    {
+     "name": "cfg",
+     "type": "FLOAT",
+     "widget": {
+      "name": "cfg"
+     },
+     "link": 448
+    }
+   ],
+   "outputs": [
+    {
+     "name": "LATENT",
+     "type": "LATENT",
+     "slot_index": 0,
+     "links": [
+      499
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "KSampler"
+   },
+   "widgets_values": [
+    1,
+    "fixed",
+    10,
+    6,
+    "uni_pc",
+    "simple",
+    1
+   ],
+   "title": "in_seed"
+  },
+  {
+   "id": 153,
+   "type": "WanSoundImageToVideo",
+   "pos": [
+    870,
+    1890
+   ],
+   "size": [
+    270,
+    250
+   ],
+   "flags": {},
+   "order": 41,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "positive",
+     "type": "CONDITIONING",
+     "link": 449
+    },
+    {
+     "name": "negative",
+     "type": "CONDITIONING",
+     "link": 450
+    },
+    {
+     "name": "vae",
+     "type": "VAE",
+     "link": 451
+    },
+    {
+     "name": "audio_encoder_output",
+     "shape": 7,
+     "type": "AUDIO_ENCODER_OUTPUT",
+     "link": 452
+    },
+    {
+     "name": "ref_image",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 453
+    },
+    {
+     "name": "control_video",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": null
+    },
+    {
+     "name": "ref_motion",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": null
+    },
+    {
+     "name": "length",
+     "type": "INT",
+     "widget": {
+      "name": "length"
+     },
+     "link": 502
+    }
+   ],
+   "outputs": [
+    {
+     "name": "positive",
+     "type": "CONDITIONING",
+     "links": [
+      444
+     ]
+    },
+    {
+     "name": "negative",
+     "type": "CONDITIONING",
+     "links": [
+      445
+     ]
+    },
+    {
+     "name": "latent",
+     "type": "LATENT",
+     "links": [
+      446
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "WanSoundImageToVideo"
+   },
+   "widgets_values": [
+    1024,
+    576,
+    77,
+    1
+   ],
+   "title": "in_size"
+  },
+  {
+   "id": 154,
+   "type": "ModelSamplingSD3",
+   "pos": [
+    890,
+    1760
+   ],
+   "size": [
+    250,
+    60
+   ],
+   "flags": {},
+   "order": 36,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "model",
+     "type": "MODEL",
+     "link": 498
+    }
+   ],
+   "outputs": [
+    {
+     "name": "MODEL",
+     "type": "MODEL",
+     "slot_index": 0,
+     "links": [
+      443
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "ModelSamplingSD3"
+   },
+   "widgets_values": [
+    8
+   ]
+  },
+  {
+   "id": 159,
+   "type": "CLIPTextEncode",
+   "pos": [
+    370,
+    1790
+   ],
+   "size": [
+    422.84503173828125,
+    164.31304931640625
+   ],
+   "flags": {},
+   "order": 34,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "clip",
+     "type": "CLIP",
+     "link": 461
+    }
+   ],
+   "outputs": [
+    {
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "slot_index": 0,
+     "links": [
+      449
+     ]
+    }
+   ],
+   "title": "in_prompt",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "CLIPTextEncode"
+   },
+   "widgets_values": [
+    "Medium close-up, 50mm lens, near-static camera. She sings the line straight to camera with a playful smile, a small wave of her hand, slight head movements on the beat, wind moving the loose fabric of her clothes. Natural daylight, film look."
+   ],
+   "color": "#232",
+   "bgcolor": "#353"
+  },
+  {
+   "id": 167,
+   "type": "CreateVideo",
+   "pos": [
+    2430,
+    2170
+   ],
+   "size": [
+    270,
+    80
+   ],
+   "flags": {},
+   "order": 59,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "images",
+     "type": "IMAGE",
+     "link": 500
+    },
+    {
+     "name": "audio",
+     "shape": 7,
+     "type": "AUDIO",
+     "link": 473
+    }
+   ],
+   "outputs": [
+    {
+     "name": "VIDEO",
+     "type": "VIDEO",
+     "links": [
+      474
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "CreateVideo"
+   },
+   "widgets_values": [
+    16
+   ]
+  },
+  {
+   "id": 173,
+   "type": "AudioEncoderEncode",
+   "pos": [
+    1130,
+    2340
+   ],
+   "size": [
+    285.087890625,
+    46
+   ],
+   "flags": {},
+   "order": 38,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "audio_encoder",
+     "type": "AUDIO_ENCODER",
+     "link": 485
+    },
+    {
+     "name": "audio",
+     "type": "AUDIO",
+     "link": 486
+    }
+   ],
+   "outputs": [
+    {
+     "name": "AUDIO_ENCODER_OUTPUT",
+     "type": "AUDIO_ENCODER_OUTPUT",
+     "links": [
+      452
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "AudioEncoderEncode"
+   },
+   "widgets_values": []
+  },
+  {
+   "id": 168,
+   "type": "SaveVideo",
+   "pos": [
+    1500,
+    2320
+   ],
+   "size": [
+    1250,
+    690
+   ],
+   "flags": {},
+   "order": 61,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "video",
+     "type": "VIDEO",
+     "link": 474
+    }
+   ],
+   "outputs": [],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "SaveVideo"
+   },
+   "widgets_values": [
+    "video/sing-wan22-s2v",
+    "auto",
+    "auto"
+   ],
+   "title": "out_video"
+  },
+  {
+   "id": 177,
+   "type": "PrimitiveInt",
+   "pos": [
+    420,
+    2650
+   ],
+   "size": [
+    306.36004638671875,
+    82
+   ],
+   "flags": {},
+   "order": 17,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "INT",
+     "type": "INT",
+     "links": [
+      447
+     ]
+    }
+   ],
+   "title": "in_steps",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "PrimitiveInt"
+   },
+   "widgets_values": [
+    20,
+    "fixed"
+   ]
+  },
+  {
+   "id": 178,
+   "type": "PrimitiveFloat",
+   "pos": [
+    420,
+    2780
+   ],
+   "size": [
+    306.36004638671875,
+    58
+   ],
+   "flags": {},
+   "order": 18,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "FLOAT",
+     "type": "FLOAT",
+     "links": [
+      448
+     ]
+    }
+   ],
+   "title": "in_cfg",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "PrimitiveFloat"
+   },
+   "widgets_values": [
+    6
+   ]
+  },
+  {
+   "id": 161,
+   "type": "UNETLoader",
+   "pos": [
+    -80,
+    1750
+   ],
+   "size": [
+    390,
+    82
+   ],
+   "flags": {},
+   "order": 23,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "MODEL",
+     "type": "MODEL",
+     "slot_index": 0,
+     "links": [
+      498
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "UNETLoader",
+    "models": [
+     {
+      "name": "wan2.2_s2v_14B_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_s2v_14B_fp8_scaled.safetensors",
+      "directory": "diffusion_models"
+     }
+    ]
+   },
+   "widgets_values": [
+    "wan2.2_s2v_14B_fp8_scaled.safetensors",
+    "default"
+   ]
+  },
+  {
+   "id": 162,
+   "type": "LoadAudio",
+   "pos": [
+    -60,
+    2350
+   ],
+   "size": [
+    360,
+    140
+   ],
+   "flags": {},
+   "order": 29,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "AUDIO",
+     "type": "AUDIO",
+     "links": [
+      473,
+      486
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "LoadAudio"
+   },
+   "widgets_values": [
+    "audio.wav",
+    null,
+    null
+   ],
+   "title": "in_audio"
+  },
+  {
+   "id": 160,
+   "type": "LoadImage",
+   "pos": [
+    -60,
+    2540
+   ],
+   "size": [
+    360,
+    314
+   ],
+   "flags": {},
+   "order": 30,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "slot_index": 0,
+     "links": [
+      453
+     ]
+    },
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "slot_index": 1,
+     "links": null
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.3.54",
+    "Node name for S&R": "LoadImage"
+   },
+   "widgets_values": [
+    "start.png",
+    "image"
+   ],
+   "title": "in_start_image"
+  },
+  {
+   "id": 9001,
+   "type": "PrimitiveFloat",
+   "pos": [
+    -60,
+    2280
+   ],
+   "size": [
+    350,
+    110
+   ],
+   "flags": {},
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "value",
+     "name": "value",
+     "type": "FLOAT",
+     "widget": {
+      "name": "value"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "FLOAT",
+     "name": "FLOAT",
+     "type": "FLOAT",
+     "links": [
+      501
+     ]
+    }
+   ],
+   "title": "in_seconds",
+   "properties": {
+    "Node name for S&R": "PrimitiveFloat",
+    "cnr_id": "comfy-core",
+    "ver": "0.16.3",
+    "enableTabs": false,
+    "tabWidth": 65,
+    "tabXOffset": 10,
+    "hasSecondTab": false,
+    "secondTabText": "Send Back",
+    "secondTabOffset": 80,
+    "secondTabWidth": 65
+   },
+   "widgets_values": [
+    4.9
+   ],
+   "widgets_values_named": {
+    "value": 9
+   }
+  },
+  {
+   "id": 9002,
+   "type": "ComfyMathExpression",
+   "pos": [
+    260,
+    2280
+   ],
+   "size": [
+    225,
+    0
+   ],
+   "flags": {
+    "collapsed": true
+   },
+   "mode": 0,
+   "inputs": [
+    {
+     "label": "a",
+     "localized_name": "a",
+     "name": "values.a",
+     "type": "FLOAT,INT,BOOLEAN",
+     "link": 501
+    },
+    {
+     "localized_name": "next",
+     "name": "values.b",
+     "shape": 7,
+     "type": "FLOAT,INT,BOOLEAN",
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "FLOAT",
+     "name": "FLOAT",
+     "type": "FLOAT",
+     "links": []
+    },
+    {
+     "localized_name": "INT",
+     "name": "INT",
+     "type": "INT",
+     "links": [
+      502
+     ]
+    },
+    {
+     "localized_name": "BOOL",
+     "name": "BOOL",
+     "type": "BOOLEAN",
+     "links": []
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "ComfyMathExpression",
+    "cnr_id": "comfy-core",
+    "ver": "0.16.3",
+    "enableTabs": false,
+    "tabWidth": 65,
+    "tabXOffset": 10,
+    "hasSecondTab": false,
+    "secondTabText": "Send Back",
+    "secondTabOffset": 80,
+    "secondTabWidth": 65
+   },
+   "widgets_values": [
+    "ceil((a * 16 - 1) / 4) * 4 + 1"
+   ],
+   "widgets_values_named": {
+    "expression": "a/2"
+   },
+   "title": "num_frames (4n+1 at 16 fps)"
+  },
+  {
+   "id": 9000,
+   "type": "MarkdownNote",
+   "pos": [
+    -840,
+    1750
+   ],
+   "size": [
+    700,
+    600
+   ],
+   "flags": {},
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "properties": {},
+   "widgets_values": [
+    "# sing-wan22-s2v\nWan 2.2 S2V 14B: one start frame + a vocal track -> a singing performance. Full 20 steps, cfg 6, one chunk.\nAudio-driven like the LTX dialogue workflows, but **no end frame** (S2V can't pin one).\n\n**Inputs:** `in_start_image`, `in_audio` (the **vocal stem** slice for the shot, not the full mix; wav2vec2 hears\nthe drums otherwise), `in_prompt` (delivery and camera, not appearance), `in_seconds` = audio length. Frames = 4n+1 at 16 fps.\n\n**Length:** one chunk is trained at 77 frames (4.8 s). Shots up to ~5.5 s work in one chunk; for longer lines use the\nofficial template `video_wan2_2_14B_s2v`, which chains extend chunks.\n\n`in_size`: S2V is a 480p/720p-class model. 1024x576 is the 16:9 default here; 1280x720 is heavier.\nWan renders 16 fps; interpolate for the 24 fps edit."
+   ],
+   "title": "sing-wan22-s2v: how to use"
+  }
+ ],
+ "links": [
+  [
+   441,
+   150,
+   0,
+   148,
+   1,
+   "VAE"
+  ],
+  [
+   442,
+   147,
+   0,
+   149,
+   0,
+   "CLIP"
+  ],
+  [
+   443,
+   154,
+   0,
+   152,
+   0,
+   "MODEL"
+  ],
+  [
+   444,
+   153,
+   0,
+   152,
+   1,
+   "CONDITIONING"
+  ],
+  [
+   445,
+   153,
+   1,
+   152,
+   2,
+   "CONDITIONING"
+  ],
+  [
+   446,
+   153,
+   2,
+   152,
+   3,
+   "LATENT"
+  ],
+  [
+   447,
+   177,
+   0,
+   152,
+   4,
+   "INT"
+  ],
+  [
+   448,
+   178,
+   0,
+   152,
+   5,
+   "FLOAT"
+  ],
+  [
+   449,
+   159,
+   0,
+   153,
+   0,
+   "CONDITIONING"
+  ],
+  [
+   450,
+   149,
+   0,
+   153,
+   1,
+   "CONDITIONING"
+  ],
+  [
+   451,
+   150,
+   0,
+   153,
+   2,
+   "VAE"
+  ],
+  [
+   452,
+   173,
+   0,
+   153,
+   3,
+   "AUDIO_ENCODER_OUTPUT"
+  ],
+  [
+   453,
+   160,
+   0,
+   153,
+   4,
+   "IMAGE"
+  ],
+  [
+   461,
+   147,
+   0,
+   159,
+   0,
+   "CLIP"
+  ],
+  [
+   473,
+   162,
+   0,
+   167,
+   1,
+   "AUDIO"
+  ],
+  [
+   474,
+   167,
+   0,
+   168,
+   0,
+   "VIDEO"
+  ],
+  [
+   485,
+   151,
+   0,
+   173,
+   0,
+   "AUDIO_ENCODER"
+  ],
+  [
+   486,
+   162,
+   0,
+   173,
+   1,
+   "AUDIO"
+  ],
+  [
+   498,
+   161,
+   0,
+   154,
+   0,
+   "MODEL"
+  ],
+  [
+   499,
+   152,
+   0,
+   148,
+   0,
+   "LATENT"
+  ],
+  [
+   500,
+   148,
+   0,
+   167,
+   0,
+   "IMAGE"
+  ],
+  [
+   501,
+   9001,
+   0,
+   9002,
+   0,
+   "FLOAT"
+  ],
+  [
+   502,
+   9002,
+   1,
+   153,
+   7,
+   "INT"
+  ]
+ ],
+ "groups": [
+  {
+   "id": 9,
+   "title": "Fix overbaked first frame",
+   "bounding": [
+    2430,
+    1680,
+    610,
+    450
+   ],
+   "color": "#3f789e",
+   "font_size": 24,
+   "flags": {}
+  },
+  {
+   "id": 10,
+   "title": "Step 4 - Prompt",
+   "bounding": [
+    350,
+    1680,
+    470,
+    560
+   ],
+   "color": "#3f789e",
+   "font_size": 24,
+   "flags": {}
+  },
+  {
+   "id": 11,
+   "title": "Step 1 - Load models",
+   "bounding": [
+    -90,
+    1680,
+    410,
+    557.5999755859375
+   ],
+   "color": "#3f789e",
+   "font_size": 24,
+   "flags": {}
+  },
+  {
+   "id": 12,
+   "title": "Step 2 - Upload audio & ref_image",
+   "bounding": [
+    -90,
+    2260,
+    410,
+    630
+   ],
+   "color": "#3f789e",
+   "font_size": 24,
+   "flags": {}
+  },
+  {
+   "id": 14,
+   "title": "Basic sampling",
+   "bounding": [
+    850,
+    1680,
+    610,
+    560
+   ],
+   "color": "#3f789e",
+   "font_size": 24,
+   "flags": {}
+  },
+  {
+   "id": 15,
+   "title": "Step 3 - Batch settings",
+   "bounding": [
+    350,
+    2260,
+    1100,
+    640
+   ],
+   "color": "#3f789e",
+   "font_size": 24,
+   "flags": {}
+  },
+  {
+   "id": 16,
+   "title": "Sampler settings",
+   "bounding": [
+    390,
+    2570,
+    360,
+    280
+   ],
+   "color": "#3f789e",
+   "font_size": 24,
+   "flags": {}
+  }
+ ],
+ "definitions": {
+  "subgraphs": []
+ },
+ "config": {},
+ "extra": {
+  "ds": {
+   "scale": 0.42409761837248483,
+   "offset": [
+    864.0224598577478,
+    -1189.4216458741478
+   ]
+  },
+  "frontendVersion": "1.27.10",
+  "VHS_latentpreview": false,
+  "VHS_latentpreviewrate": 0,
+  "VHS_MetadataImage": true,
+  "VHS_KeepIntermediate": true
+ },
+ "version": 0.4
+}
