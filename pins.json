@@ -1,11 +1,11 @@
 {
- "_note": "The stack these workflows were tested on (SETUP-RTX4090.md). tools/get_models.py --verify reports drift from it. Update it only after re-testing on a new stack.",
+ "_note": "The stack these workflows were tested on (SETUP-RTX4090.md). tools/get_models.py --verify reports drift from it. Moved from ComfyUI 0.44.2 to 0.45.1 on 2026-11-10 after re-rendering reference shots on both (same pictures). Update it only after the same check on a new stack.",
  "tested_on": "2026-11-10",
  "comfyui": {
-  "version": "0.44.2",
-  "commit": "e6515b16",
-  "frontend": "1.57.6",
-  "templates": "0.11.103"
+  "version": "0.45.1",
+  "commit": "02457b8c",
+  "frontend": "1.58.5",
+  "templates": "0.11.106"
  },
  "python": "3.13.12",
  "packages": {
