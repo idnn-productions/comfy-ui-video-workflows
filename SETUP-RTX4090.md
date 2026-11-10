@@ -16,14 +16,18 @@ described, with the render times below.
 
 | | version |
 |---|---|
-| ComfyUI | 0.44.2 (Comfy Desktop, standalone NVIDIA build) |
-| frontend / templates | 1.57.6 / 0.11.103 |
+| ComfyUI | 0.45.1, commit `02457b8c` (Comfy Desktop 1.1.9, standalone NVIDIA bundle `v0.42.1-env1`); render times below were measured on 0.44.2 |
+| frontend / templates | 1.58.5 / 0.11.106 |
+| ComfyUI-Manager | 3.42 |
 | Python | 3.13.12 (the one bundled with ComfyUI) |
-| PyTorch | 2.12.1+cu130 (torchaudio 2.11.0, torchvision 0.27.1) |
+| PyTorch | 2.12.1+cu130, CUDA 13.0 (torchaudio 2.11.0+cu130, torchvision 0.27.1+cu130) |
 | NVIDIA driver | 617.42 (any driver with CUDA 13 support) |
-| SageAttention (optional) | sageattention 2.2.0 + triton-windows 3.8 |
+| SageAttention (optional) | sageattention 2.2.0+cu130torch2.10.0andhigher.post6, triton-windows 3.8.0.post29 |
+| node packs | ComfyUI-KJNodes 1.5.3, ComfyUI-LTXVideo 1.1.0, comfyui-latentsync-enhanced 1.0.5 (+ patch), Sphere-Light-Render-ComfyUI 1.0.0 (`cc89da6`) |
 
-Older ComfyUI versions lack nodes these workflows use (LTX-2.5, MiniMax H3, Wan-Animate-2, Wan-Dancer, HunyuanVideo 1.5
+The same list is machine-readable in `pins.json`; `tools/get_models.py --verify` compares an install against it.
+
+We stay on current ComfyUI releases and re-check after each update. Older ComfyUI versions lack nodes these workflows use (LTX-2.5, MiniMax H3, Wan-Animate-2, Wan-Dancer, HunyuanVideo 1.5
 nodes, subgraphs). Update first.
 
 ## Step by step
@@ -62,10 +66,33 @@ nodes, subgraphs). Update first.
    - On torch 2.12 / torchaudio 2.11 / torchvision 0.27 the pack's `nodes.py` needs three one-line fixes:
      call `read_video(..., change_fps=False, use_decord=False)` (otherwise 24 fps input plays about 4% slow), write
      audio with `soundfile` instead of `torchaudio.save`, and read the result with the pack's own cv2 `read_video`
-     instead of the removed `torchvision.io.read_video`. A pack update overwrites these.
+     instead of the removed `torchvision.io.read_video`. They are in `patches/comfyui-latentsync-enhanced-1.0.5.patch`:
+     from the pack's folder, `patch -p1 < <this repo>/patches/comfyui-latentsync-enhanced-1.0.5.patch` (Git Bash on
+     Windows). A pack update overwrites the fixes; `--verify` reports it.
 7. **ElevenLabs voice** (only for `tts-elevenlabs-v4`): copy `custom_nodes/elevenlabs_v4/` into
    `ComfyUI/custom_nodes/`, set `ELEVENLABS_API_KEY` as a user environment variable (`setx ELEVENLABS_API_KEY ...`),
    restart ComfyUI, and put your voice id in the node.
+
+## Stay current, check every update
+
+We keep ComfyUI current: new models and nodes arrive with core updates. What keeps the workflows reliable is checking
+after every update, not freezing the version:
+
+- **Know when it updates.** In Comfy Desktop, auto-update is a per-install setting (`autoUpdateComfyUI` in the
+  install's record, on by default), so the core and frontend can move between two sessions: ours went from 0.44.2 to
+  0.45.1 that way. Leave it on or update by hand, but check afterwards.
+- **Check after any update or node install:**
+  ```bash
+  python tools/get_models.py --models-dir "C:/path/to/ComfyUI/models" --verify --comfy-dir "C:/path/to/ComfyUI"
+  ```
+  It reports missing or changed model files, a core, frontend, Python or package version that differs from
+  `pins.json`, node packs at a different version, and patched files that lost their patch. `--deep` adds a full
+  SHA-256 of every model (cache it with `--hash-cache hashes.json`: the first run reads all 306 GB, up to about 15 minutes on NVMe; with the cache, about a second).
+- **Re-render a few reference shots** with the seed and settings of earlier renders (one per model family you use) and
+  compare picture, render time and VRAM before moving `pins.json` to the new versions. On 0.44.2 -> 0.45.1 the
+  pictures matched; render times are in the table below.
+- **Rollback** only for a real regression: Comfy Desktop keeps a snapshot before and after each update and node install
+  (`<install>/.launcher/snapshots/`); restore from the app.
 
 ## Render times on the 4090
 
