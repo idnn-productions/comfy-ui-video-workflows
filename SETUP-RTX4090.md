@@ -87,7 +87,7 @@ Workflows behave the way they were tested only on the tested stack, so stop thin
   ```
   It reports missing or changed model files, a core, frontend, Python or package version that differs from
   `pins.json`, node packs at a different version, and patched files that lost their patch. `--deep` adds a full
-  SHA-256 of every model (cache it with `--hash-cache hashes.json`; about 5 minutes for all 306 GB, seconds after).
+  SHA-256 of every model (cache it with `--hash-cache hashes.json`: the first run reads all 306 GB, up to about 15 minutes on NVMe; with the cache, about a second).
 - **Rollback:** Comfy Desktop keeps a snapshot before and after each update and node install
   (`<install>/.launcher/snapshots/`); restore from the app.
 
