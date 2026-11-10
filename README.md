@@ -61,10 +61,12 @@ and the cut has a handle. Frame counts are computed for you.
 
 ## Setup
 
+**Have an RTX 4090?** [SETUP-RTX4090.md](SETUP-RTX4090.md) is our exact machine: versions, launch settings, node packs, measured render times and the pitfalls we hit. `tools/get_models.py` downloads the models for the workflows you pick (list in `models.json`).
+
 1. Update ComfyUI (these use recent core nodes: LTX-2.5, MiniMax H3, Wan-Animate-2, Wan-Dancer, HunyuanVideo 1.5,
    subgraphs, DynamicCombo widgets).
 2. Drag a workflow onto the canvas, or copy `workflows/` into `ComfyUI/user/default/workflows/`.
-3. Download the models it lists (below); most workflows also carry a model-links note from the official template.
+3. Download the models it lists (below), or run `python tools/get_models.py --models-dir <ComfyUI>/models <workflow>`.
 4. Install the extra node packs a workflow needs (most need none).
 
 ### Extra node packs
