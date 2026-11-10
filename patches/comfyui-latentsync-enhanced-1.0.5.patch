@@ -1,0 +1,31 @@
+--- a/nodes.py
++++ b/nodes.py
+@@ -241,7 +241,7 @@
+         whisper_chunks = whisper_chunks[:actual_audio_frames]
+ 
+         # ── Video (loop to match audio, no face detection yet) ──────────
+-        video_frames = read_video(video_path, use_decord=False)
++        video_frames = read_video(video_path, change_fps=False, use_decord=False)  # lipsync-lab patch: keep source fps (video_fps), no 25 fps resample
+         video_frames = self._loop_frames_only(video_frames, actual_audio_frames)
+ 
+         total_frames = len(video_frames)
+@@ -550,7 +550,7 @@
+                 resampler = torchaudio.transforms.Resample(sample_rate, 16000).to(device)
+                 waveform  = resampler(waveform.to(device))
+                 sample_rate = 16000
+-            torchaudio.save(audio_path, waveform.cpu(), sample_rate)
++            sf.write(audio_path, waveform.cpu().T.numpy(), sample_rate)  # lipsync-lab patch: torchaudio>=2.9 save needs torchcodec
+             resampled_audio = {"waveform": waveform.unsqueeze(0).cpu(), "sample_rate": sample_rate}
+ 
+             # ── Load config ─────────────────────────────────────────────
+@@ -600,8 +600,8 @@
+                 raise FileNotFoundError(f"Output video not found: {output_video_path}")
+ 
+             # ── Read result ─────────────────────────────────────────────
+-            import torchvision.io as tio
+-            processed_frames = tio.read_video(output_video_path, pts_unit="sec")[0]
++            # lipsync-lab patch: torchvision.io.read_video was removed in torchvision 0.27
++            processed_frames = torch.from_numpy(read_video(output_video_path, change_fps=False, use_decord=False))
+             processed_frames = processed_frames.float() / 255.0
+ 
+             return (processed_frames.cpu(), resampled_audio)

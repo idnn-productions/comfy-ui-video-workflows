@@ -1,0 +1,58 @@
+{
+ "_note": "The stack these workflows were tested on (SETUP-RTX4090.md). tools/get_models.py --verify reports drift from it. Update it only after re-testing on a new stack.",
+ "tested_on": "2026-11-10",
+ "comfyui": {
+  "version": "0.44.2",
+  "commit": "e6515b16",
+  "frontend": "1.57.6",
+  "templates": "0.11.103"
+ },
+ "python": "3.13.12",
+ "packages": {
+  "torch": "2.12.1+cu130",
+  "torchvision": "0.27.1+cu130",
+  "torchaudio": "2.11.0+cu130",
+  "triton-windows": "3.8.0.post29",
+  "sageattention": "2.2.0+cu130torch2.10.0andhigher.post6",
+  "insightface": "2.1"
+ },
+ "node_packs": {
+  "comfyui-kjnodes": {
+   "version": "1.5.3",
+   "workflows": [
+    "dialogue-ltx23-latentsync",
+    "dialogue-ltx25dev-latentsync",
+    "wide-ltx23-latentsync",
+    "relight-ltx23"
+   ]
+  },
+  "ComfyUI-LTXVideo": {
+   "version": "1.1.0",
+   "workflows": [
+    "relight-ltx23"
+   ]
+  },
+  "Sphere-Light-Render-ComfyUI": {
+   "version": "1.0.0",
+   "commit": "cc89da6",
+   "workflows": [
+    "relight-ltx23"
+   ]
+  },
+  "comfyui-latentsync-enhanced": {
+   "version": "1.0.5",
+   "patch": "patches/comfyui-latentsync-enhanced-1.0.5.patch",
+   "files": {
+    "nodes.py": {
+     "stock_sha256": "0f297d896aa6565e8f43a2cea0137b2379368528082e3cb74be6230099fc8f63",
+     "patched_sha256": "cd835cf8dbf5dfcd788ee86414c10e0c8541c4cf86b3cf8dc6988aafa20b0dd2"
+    }
+   },
+   "workflows": [
+    "dialogue-ltx23-latentsync",
+    "dialogue-ltx25dev-latentsync",
+    "wide-ltx23-latentsync"
+   ]
+  }
+ }
+}

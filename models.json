@@ -9,7 +9,9 @@
     "dance-wandancer",
     "motion-wananimate2",
     "motion-wananimate2-distilled"
-   ]
+   ],
+   "sha256": "1ab9a32cc2c740f6e39d80d367ce5dcc28db8c71b79b28670546b8973e9d75f9",
+   "bytes": 253806278
   },
   "byt5_small_glyphxl_fp16.safetensors": {
    "folder": "text_encoders",
@@ -17,7 +19,9 @@
    "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/resolve/main/split_files/text_encoders/byt5_small_glyphxl_fp16.safetensors",
    "workflows": [
     "i2v-hunyuan15"
-   ]
+   ],
+   "sha256": "516910bb4c9b225370290e40585d1b0e6c8cd3583690f7eec2f7fb593990fb48",
+   "bytes": 438643184
   },
   "clip_vision_h.safetensors": {
    "folder": "clip_vision",
@@ -27,7 +31,9 @@
     "dance-wandancer",
     "motion-wananimate2",
     "motion-wananimate2-distilled"
-   ]
+   ],
+   "sha256": "64a7ef761bfccbadbaa3da77366aac4185a6c58fa5de5f589b42a65bcc21f161",
+   "bytes": 1264219396
   },
   "gemma-3-12b-it-abliterated_lora_rank64_bf16.safetensors": {
    "folder": "loras",
@@ -37,7 +43,9 @@
     "dialogue-ltx23",
     "dialogue-ltx23-latentsync",
     "wide-ltx23-latentsync"
-   ]
+   ],
+   "sha256": "87bcabeac9bec9f374232b5122d6511c2b2112d479e50176149e944b3712eb4a",
+   "bytes": 628203616
   },
   "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors": {
    "folder": "text_encoders",
@@ -49,7 +57,8 @@
     "movement-ltx25distilled-flf",
     "movement-ltx25distilled-i2v",
     "wide-ltx25distilled"
-   ]
+   ],
+   "bytes": 15372969374
   },
   "gemma4_e2b_it_int8_convrot.safetensors": {
    "folder": "text_encoders",
@@ -61,7 +70,9 @@
     "movement-ltx25distilled-flf",
     "movement-ltx25distilled-i2v",
     "wide-ltx25distilled"
-   ]
+   ],
+   "sha256": "efeca0fcad2f863e5ed0a75e3af952b72bc963604c1dda6d20aee87a32b17566",
+   "bytes": 5199997904
   },
   "gemma_3_12B_it_fp4_mixed.safetensors": {
    "folder": "text_encoders",
@@ -72,7 +83,9 @@
     "dialogue-ltx23-latentsync",
     "relight-ltx23",
     "wide-ltx23-latentsync"
-   ]
+   ],
+   "sha256": "aaca463d11e6d8d2a4bdb0d6299214c15ef78a3f73e0ef8113d5a9d0219b3f6d",
+   "bytes": 9447702218
   },
   "hunyuanvideo1.5_720p_i2v_fp16.safetensors": {
    "folder": "diffusion_models",
@@ -80,7 +93,9 @@
    "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/resolve/main/split_files/diffusion_models/hunyuanvideo1.5_720p_i2v_fp16.safetensors",
    "workflows": [
     "i2v-hunyuan15"
-   ]
+   ],
+   "sha256": "96883b154e4231e6106515bdef53a091085d5821518c387eb28609fde77e4bf1",
+   "bytes": 16653368128
   },
   "hunyuanvideo15_vae_fp16.safetensors": {
    "folder": "vae",
@@ -88,7 +103,9 @@
    "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/resolve/main/split_files/vae/hunyuanvideo15_vae_fp16.safetensors",
    "workflows": [
     "i2v-hunyuan15"
-   ]
+   ],
+   "sha256": "e7c3091949c27e2d55ae6d5df917b99dadfebbf308e5a50d0ade0d16c90297ae",
+   "bytes": 2521292758
   },
   "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors": {
    "folder": "loras",
@@ -97,7 +114,9 @@
    "workflows": [
     "dance-wandancer",
     "motion-wananimate2"
-   ]
+   ],
+   "sha256": "85c4a61c30e0497aa44b91d93a893b624708461a56fe5485183b28fa07e2dfb3",
+   "bytes": 738005744
   },
   "ltx-2.3-22b-dev-fp8.safetensors": {
    "folder": "checkpoints",
@@ -108,7 +127,9 @@
     "dialogue-ltx23-latentsync",
     "relight-ltx23",
     "wide-ltx23-latentsync"
-   ]
+   ],
+   "sha256": "28606c5b5a06ce56f896d4dfcb20f212739e07a68fbe48e53638188449d26450",
+   "bytes": 29145431166
   },
   "ltx-2.3-22b-ic-lora-relight-1.0.safetensors": {
    "folder": "loras",
@@ -116,7 +137,8 @@
    "url": "https://huggingface.co/Lightricks/LTX-2.3-22b-IC-LoRA-Relight/resolve/main/ltx-2.3-22b-ic-lora-relight-1.0.safetensors",
    "workflows": [
     "relight-ltx23"
-   ]
+   ],
+   "bytes": 327309305
   },
   "ltx-2.3-spatial-upscaler-x2-1.1.safetensors": {
    "folder": "latent_upscale_models",
@@ -126,7 +148,9 @@
     "dialogue-ltx23",
     "dialogue-ltx23-latentsync",
     "wide-ltx23-latentsync"
-   ]
+   ],
+   "sha256": "5f416311fa8172b65af67530758964708d29a317b830d689a51143b7f91913ed",
+   "bytes": 995743560
   },
   "ltx-2.5-22b-dev-transformer-comfy-int8-convrot.safetensors": {
    "folder": "diffusion_models",
@@ -146,7 +170,8 @@
     "movement-ltx25distilled-flf",
     "movement-ltx25distilled-i2v",
     "wide-ltx25distilled"
-   ]
+   ],
+   "bytes": 21504034224
   },
   "ltx-2.5-audio-vae-bf16.safetensors": {
    "folder": "vae",
@@ -158,7 +183,8 @@
     "movement-ltx25distilled-flf",
     "movement-ltx25distilled-i2v",
     "wide-ltx25distilled"
-   ]
+   ],
+   "bytes": 364866540
   },
   "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors": {
    "folder": "latent_upscale_models",
@@ -166,7 +192,8 @@
    "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
    "workflows": [
     "movement-ltx25distilled-i2v"
-   ]
+   ],
+   "bytes": 995778752
   },
   "ltx-2.5-video-vae-bf16.safetensors": {
    "folder": "vae",
@@ -178,7 +205,8 @@
     "movement-ltx25distilled-flf",
     "movement-ltx25distilled-i2v",
     "wide-ltx25distilled"
-   ]
+   ],
+   "bytes": 1472223346
   },
   "ltx_2.3_22b_distilled_1.1_lora_dynamic_fro09_avg_rank_111_bf16.safetensors": {
    "folder": "loras",
@@ -189,7 +217,9 @@
     "dialogue-ltx23-latentsync",
     "relight-ltx23",
     "wide-ltx23-latentsync"
-   ]
+   ],
+   "sha256": "31e0c0195fb841bf31af78e8b60858f489e87ddcea4a5239abc80943da65e3ac",
+   "bytes": 2741024390
   },
   "minimax_h3_audio_vae_fp32.safetensors": {
    "folder": "vae",
@@ -197,7 +227,9 @@
    "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors",
    "workflows": [
     "movement-pikah3"
-   ]
+   ],
+   "sha256": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+   "bytes": 605254808
   },
   "minimax_h3_fl2va_pruned_int8_convrot.safetensors": {
    "folder": "diffusion_models",
@@ -205,7 +237,9 @@
    "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
    "workflows": [
     "movement-pikah3"
-   ]
+   ],
+   "sha256": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
+   "bytes": 20970379616
   },
   "minimax_h3_video_vae_int8_convrot.safetensors": {
    "folder": "vae",
@@ -213,7 +247,9 @@
    "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_int8_convrot.safetensors",
    "workflows": [
     "movement-pikah3"
-   ]
+   ],
+   "sha256": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
+   "bytes": 2811065184
   },
   "pika_h3_flex_fl2va_v1_bf16.safetensors": {
    "folder": "loras",
@@ -221,7 +257,9 @@
    "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/loras/pika_h3_flex_fl2va_v1_bf16.safetensors",
    "workflows": [
     "movement-pikah3"
-   ]
+   ],
+   "sha256": "cc5453aeecd6189468409003fe4cf1b57e52ff3a830a0a154b87decbe07358b7",
+   "bytes": 1956172304
   },
   "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors": {
    "folder": "text_encoders",
@@ -229,7 +267,9 @@
    "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
    "workflows": [
     "movement-pikah3"
-   ]
+   ],
+   "sha256": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+   "bytes": 15687142551
   },
   "qwen_2.5_vl_7b_fp8_scaled.safetensors": {
    "folder": "text_encoders",
@@ -237,7 +277,9 @@
    "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
    "workflows": [
     "i2v-hunyuan15"
-   ]
+   ],
+   "sha256": "cb5636d852a0ea6a9075ab1bef496c0db7aef13c02350571e388aea959c5c0b4",
+   "bytes": 9384670680
   },
   "sigclip_vision_patch14_384.safetensors": {
    "folder": "clip_vision",
@@ -245,7 +287,9 @@
    "url": "https://huggingface.co/Comfy-Org/sigclip_vision_384/resolve/main/sigclip_vision_patch14_384.safetensors",
    "workflows": [
     "i2v-hunyuan15"
-   ]
+   ],
+   "sha256": "1fee501deabac72f0ed17610307d7131e3e9d1e838d0363aa3c2b97a6e03fb33",
+   "bytes": 856505640
   },
   "umt5_xxl_fp8_e4m3fn_scaled.safetensors": {
    "folder": "text_encoders",
@@ -257,7 +301,9 @@
     "motion-wananimate2",
     "motion-wananimate2-distilled",
     "sing-wan22-s2v"
-   ]
+   ],
+   "sha256": "c3355d30191f1f066b26d93fba017ae9809dce6c627dda5f6a66eaa651204f68",
+   "bytes": 6735906897
   },
   "wan2.2_dancer_14b_global_fp8_scaled.safetensors": {
    "folder": "diffusion_models",
@@ -265,7 +311,9 @@
    "url": "https://huggingface.co/Comfy-Org/Wan-Dancer/resolve/main/diffusion_models/wan2.2_dancer_14b_global_fp8_scaled.safetensors",
    "workflows": [
     "dance-wandancer"
-   ]
+   ],
+   "sha256": "e6590802f488979209cb416dee711e55d44f1e651d4dbf7e92b2358fe74a2143",
+   "bytes": 18342596856
   },
   "wan2.2_dancer_14b_local_fp8_scaled.safetensors": {
    "folder": "diffusion_models",
@@ -273,7 +321,9 @@
    "url": "https://huggingface.co/Comfy-Org/Wan-Dancer/resolve/main/diffusion_models/wan2.2_dancer_14b_local_fp8_scaled.safetensors",
    "workflows": [
     "dance-wandancer"
-   ]
+   ],
+   "sha256": "744b93871a4ca8d9645790dd9a52fe8b2e6876557aac94c930906270d3d9bd60",
+   "bytes": 18342596856
   },
   "wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors": {
    "folder": "diffusion_models",
@@ -281,7 +331,9 @@
    "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
    "workflows": [
     "broll-wan22-flf"
-   ]
+   ],
+   "sha256": "6122e79d55e0f235698d11d657f3b196c5273c830da00b2b013c5a048d5e6a42",
+   "bytes": 14294742832
   },
   "wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors": {
    "folder": "diffusion_models",
@@ -289,7 +341,9 @@
    "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
    "workflows": [
     "broll-wan22-flf"
-   ]
+   ],
+   "sha256": "5471a457b6ac404202a5fbe6c11595a3d5641fc766b00f38763f72303fffc21e",
+   "bytes": 14294742832
   },
   "wan2.2_s2v_14B_fp8_scaled.safetensors": {
    "folder": "diffusion_models",
@@ -297,7 +351,9 @@
    "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_s2v_14B_fp8_scaled.safetensors",
    "workflows": [
     "sing-wan22-s2v"
-   ]
+   ],
+   "sha256": "140e75af5534ac3d91e710d9df756f7032addd64b341ba2c1c70e3e6da9aa216",
+   "bytes": 16394832474
   },
   "wan_2.1_vae.safetensors": {
    "folder": "vae",
@@ -306,7 +362,9 @@
    "workflows": [
     "broll-wan22-flf",
     "sing-wan22-s2v"
-   ]
+   ],
+   "sha256": "2fc39d31359a4b0a64f55876d8ff7fa8d780956ae2cb13463b0223e15148976b",
+   "bytes": 253815318
   },
   "wan_animate_2_distill_int8_convrot.safetensors": {
    "folder": "diffusion_models",
@@ -314,7 +372,9 @@
    "url": "https://huggingface.co/Comfy-Org/Wan-Animate-2/resolve/main/diffusion_models/wan_animate_2_distill_int8_convrot.safetensors",
    "workflows": [
     "motion-wananimate2-distilled"
-   ]
+   ],
+   "sha256": "d2e566ecac3f164cb1a6b63dc7d868d6678c9affa49fbceb3abe4f9458f89c8a",
+   "bytes": 16653175528
   },
   "wan_animate_2_int8_convrot.safetensors": {
    "folder": "diffusion_models",
@@ -322,7 +382,9 @@
    "url": "https://huggingface.co/Comfy-Org/Wan-Animate-2/resolve/main/diffusion_models/wan_animate_2_int8_convrot.safetensors",
    "workflows": [
     "motion-wananimate2"
-   ]
+   ],
+   "sha256": "0580ecdd65e47e97c30df9670d13a6c4a131d26de5a1faf2ccc78392d5167584",
+   "bytes": 16653175528
   },
   "wav2vec2_large_english_fp16.safetensors": {
    "folder": "audio_encoders",
@@ -330,7 +392,9 @@
    "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/audio_encoders/wav2vec2_large_english_fp16.safetensors",
    "workflows": [
     "sing-wan22-s2v"
-   ]
+   ],
+   "sha256": "f0017a43ea57ef6b3d4866be607844bbd8cada6d30966f7d70044ed0d63d3f9e",
+   "bytes": 630997322
   }
  }
 }
