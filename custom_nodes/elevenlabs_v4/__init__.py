@@ -4,6 +4,7 @@ import json
 import os
 import re
 import urllib.error
+import urllib.parse
 import urllib.request
 import wave
 
@@ -17,11 +18,28 @@ MODEL_ID = "eleven_v4"
 # pcm_44100 needs the Pro tier; pcm_48000 is tried first.
 OUTPUT_FORMATS = ("pcm_48000", "pcm_44100")
 TAIL_SILENCE_SEC = 0.4
-SHOT_ID_RE = re.compile(r"^[A-Za-z0-9_-]+$")
+SHOT_ID_RE = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
+VOICE_ID_RE = re.compile(r"^[A-Za-z0-9]{1,64}$")  # ElevenLabs voice ids are alphanumeric
 
 
 def lipsync_input_dir():
     return os.path.join(folder_paths.get_input_directory(), "lipsync")
+
+
+def check_ids(voice_id, shot_id):
+    """Both ids end up in a URL or a path, so they are checked again at run time, not only at validation."""
+    if not VOICE_ID_RE.match(voice_id or ""):
+        raise ValueError("voice_id must be an ElevenLabs voice id (letters and digits only).")
+    if shot_id and not SHOT_ID_RE.match(shot_id):
+        raise ValueError("shot_id may only contain letters, digits, '_' and '-'.")
+
+
+def shot_dir_for(shot_id):
+    base = os.path.realpath(lipsync_input_dir())
+    d = os.path.realpath(os.path.join(base, shot_id))
+    if os.path.dirname(d) != base:
+        raise ValueError(f"shot_id {shot_id!r} resolves outside {base}")
+    return d
 
 
 def api_key():
@@ -43,7 +61,8 @@ def request_tts(text, voice_id, seed, voice_settings, output_format):
     key = api_key()
     body = json.dumps({"text": text, "model_id": MODEL_ID, "seed": seed, "voice_settings": voice_settings}).encode()
     req = urllib.request.Request(
-        f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps?output_format={output_format}",
+        f"https://api.elevenlabs.io/v1/text-to-speech/{urllib.parse.quote(voice_id, safe='')}/with-timestamps"
+        f"?{urllib.parse.urlencode({'output_format': output_format})}",
         data=body, method="POST", headers={"xi-api-key": key, "Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=300) as r:
         return json.loads(r.read())
@@ -93,13 +112,17 @@ class ElevenLabsV4TTS(IO.ComfyNode):
         )
 
     @classmethod
-    def validate_inputs(cls, shot_id=""):
+    def validate_inputs(cls, voice_id=None, shot_id=None):
+        # A linked input arrives as None here (its value isn't known yet); execute() checks it again at run time.
+        if voice_id is not None and not VOICE_ID_RE.match(voice_id):
+            return "voice_id must be an ElevenLabs voice id (letters and digits only)."
         if shot_id and not SHOT_ID_RE.match(shot_id):
             return "shot_id may only contain letters, digits, '_' and '-'."
         return True
 
     @classmethod
     def execute(cls, text, voice_id, seed, stability, similarity_boost, speed, shot_id="") -> IO.NodeOutput:
+        check_ids(voice_id, shot_id)
         voice_settings = {"stability": stability, "similarity_boost": similarity_boost, "speed": speed}
         key = json.dumps({"text": text, "voice_id": voice_id, "model": MODEL_ID, "settings": voice_settings, "seed": seed}, sort_keys=True)
         digest = hashlib.sha256(key.encode()).hexdigest()[:24]
@@ -127,7 +150,7 @@ class ElevenLabsV4TTS(IO.ComfyNode):
             alignment = f.read()
 
         if shot_id:
-            shot_dir = os.path.join(lipsync_input_dir(), shot_id)
+            shot_dir = shot_dir_for(shot_id)
             os.makedirs(shot_dir, exist_ok=True)
             write_wav(os.path.join(shot_dir, "audio.wav"), pcm, sample_rate)
             with open(os.path.join(shot_dir, "alignment.json"), "w", encoding="utf-8") as f:
